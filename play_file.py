@@ -1,19 +1,24 @@
-import pygame
+from pygame import mixer
 import time
 
 # Initialize the pygame mixer
-pygame.mixer.init()
+mixer.init()
 
 # Load a sound file
-sound_file = "wolf-howl.mp3"  # Replace with the path to your sound file
-sound = pygame.mixer.Sound(sound_file)
 
-# Play the sound
-sound.play()
+def laughing():
+    play("laughing.mp3")
+def wolf():
+    play("wolf-howl.mp3")
 
-# Sleep for a few seconds while the sound plays
-time.sleep(sound.get_length())
+def play(sound_file):
+    sound = mixer.Sound(sound_file)
+    # Play the sound
+    sound.play()
 
-# Clean up resources
-pygame.mixer.quit()
+    # Sleep for a few seconds while the sound plays
+    time.sleep(sound.get_length())
 
+def kill():
+    # Clean up resource
+    mixer.quit()
