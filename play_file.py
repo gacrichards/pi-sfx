@@ -8,6 +8,8 @@ mixer.init()
 
 def laughing():
     play("laughing.mp3")
+def evil_laugh():
+    play("evil-laugh.mp3")
 def wolf():
     play("wolf-howl.mp3")
 def owl():
