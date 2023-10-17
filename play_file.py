@@ -6,14 +6,8 @@ import os
 mixer.init()
 script_dir = os.path.dirname(os.path.abspath(__file__))
 # Load a sound file
-def welcome():
-    play("evil-welcome.mp3")
 def ghost_breath():
     play("eerie-ghostly-breath.mp3")
-def wind():
-    play("spooky-wind.mp3")
-def loud_laugh():
-    play("evil-laugh-loud.mp3")
 def scary_lady():
     play("ghostly-female.mp3")
 def ghost_breath2():
@@ -26,20 +20,10 @@ def wolf():
     play("wolf-howl.mp3")
 def owl():
     play("owl.mp3")
-def door_creek():
-    play("door-creek.mp3")
 def toil_spell():
     play("witch-voice-double-double-toil-and-trouble-168410.mp3")
 def come_in():
     play("shady-witch-voice-5-vol-001-159184.mp3")
-def toungs_spell():
-    play("magic-spell-in-weird-language-66118.mp3")
-def ravens():
-    play("raven-manymp3-14529.mp3")
-def heavy_gate():
-    play("gate-heavy-openclose-wav-103288.mp3")
-def crows_1():
-    play("crows-6371.mp3")
 def single_raven():
     play("RavenCallSingle%20PE914605.mp3")
 def ravens():
@@ -63,6 +47,7 @@ def witch_laugh():
 def beware():
     play("ominous-horror-sound-possessed-4-beware-vol-001-167398.mp3")
 
+to_be_removed = [ 'raven-manymp3-14529.mp3', 'gate-heavy-openclose-wav-103288.mp3', 'crows-6371.mp3', 'tibetan-monks-22297.mp3', 'demon-chant-latin-14489.mp3', 'thunder-crack-31702.mp3']
 
 all_files = ["evil-welcome.mp3",
 "eerie-ghostly-breath.mp3",
@@ -102,8 +87,8 @@ def sort_working():
             
 
 def play(sound_file):
+    file_path = os.path.join(script_dir, sound_file)
     try:
-        file_path = os.path.join(script_dir, sound_file)
         sound = mixer.Sound(file_path)
         # Play the sound
         sound.play()
@@ -112,6 +97,9 @@ def play(sound_file):
         time.sleep(sound.get_length())
         return True
     except:
+        mixer.music.load(file_path)
+        mixer.music.play()
+        time.sleep(10)
         return False
 
 def kill():
