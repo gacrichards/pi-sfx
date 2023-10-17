@@ -1,4 +1,6 @@
 from pygame import mixer
+from mutagen.mp3 import MP3
+
 import time
 import os
 
@@ -102,6 +104,7 @@ def play(sound_file):
         mixer.music.load(file_path)
         audio = MP3(file_path)
         duration_in_seconds = audio.info.length
+        mixer.music.set_volume(0.1)
         mixer.music.play()
         time.sleep(duration_in_seconds)
         return False
