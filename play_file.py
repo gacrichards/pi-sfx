@@ -87,6 +87,7 @@ def sort_working():
 
 def play(sound_file):
     try:
+        print("plays sound")
         file_path = os.path.join(script_dir, sound_file)
         sound = mixer.Sound(file_path)
         # Play the sound
@@ -96,10 +97,13 @@ def play(sound_file):
         time.sleep(sound.get_length())
         return True
     except:
+        print("plays music")
         file_path = os.path.join(script_dir, sound_file)
         mixer.music.load(file_path)
+        audio = MP3(file_path)
+        duration_in_seconds = audio.info.length
         mixer.music.play()
-        time.sleep(10)
+        time.sleep(duration_in_seconds)
         return False
 
 def kill():
