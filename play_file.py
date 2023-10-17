@@ -110,9 +110,9 @@ def play(sound_file):
 
         # Sleep for a few seconds while the sound plays
         time.sleep(sound.get_length())
-        return true
+        return True
     except:
-        return false
+        return False
 
 def kill():
     # Clean up resource
