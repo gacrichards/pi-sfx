@@ -101,7 +101,7 @@ def play(sound_file):
         duration_in_seconds = audio.info.length
         mixer.music.set_volume(0.2)
         mixer.music.play()
-        time.sleep(duration_in_seconds)
+        #time.sleep(duration_in_seconds)
         return True
     except:
         print("failed to play file: " + sound_file)
