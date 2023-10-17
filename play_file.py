@@ -87,8 +87,8 @@ def sort_working():
             
 
 def play(sound_file):
-    file_path = os.path.join(script_dir, sound_file)
     try:
+        file_path = os.path.join(script_dir, sound_file)
         sound = mixer.Sound(file_path)
         # Play the sound
         sound.play()
@@ -97,6 +97,7 @@ def play(sound_file):
         time.sleep(sound.get_length())
         return True
     except:
+        file_path = os.path.join(script_dir, sound_file)
         mixer.music.load(file_path)
         mixer.music.play()
         time.sleep(10)
