@@ -49,8 +49,6 @@ def witch_laugh():
 def beware():
     play("ominous-horror-sound-possessed-4-beware-vol-001-167398.mp3")
 
-to_be_removed = [ 'raven-manymp3-14529.mp3', 'gate-heavy-openclose-wav-103288.mp3', 'crows-6371.mp3', 'tibetan-monks-22297.mp3', 'demon-chant-latin-14489.mp3', 'thunder-crack-31702.mp3']
-
 all_files = ["eerie-ghostly-breath.mp3",
 "spooky-wind.mp3",
 "evil-laugh-loud.mp3",
@@ -86,6 +84,13 @@ def sort_working():
             works.append(next_file)
     print(works)
             
+def test():
+    play("raven-manymp3-14529.mp3")
+    toil_spell()
+
+def play(files):
+    for file in files:
+        play(file)
 
 def play(sound_file):
     try:
